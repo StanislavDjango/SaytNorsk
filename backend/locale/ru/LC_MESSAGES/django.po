@@ -1,0 +1,22 @@
+# Russian translation file
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Welcome to SaytNorsk"
+msgstr "Добро пожаловать в SaytNorsk"
+
+msgid "Fill in the Blank"
+msgstr "Заполните пробел"
+
+msgid "Multiple Choice"
+msgstr "Выбор ответа"
+
+msgid "Your Results"
+msgstr "Ваши результаты"
+
+msgid "Correct Answers"
+msgstr "Правильные ответы"
+
+msgid "View Errors"
+msgstr "Просмотреть ошибки"

@@ -1,0 +1,22 @@
+# English translation file
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Welcome to SaytNorsk"
+msgstr "Welcome to SaytNorsk"
+
+msgid "Fill in the Blank"
+msgstr "Fill in the Blank"
+
+msgid "Multiple Choice"
+msgstr "Multiple Choice"
+
+msgid "Your Results"
+msgstr "Your Results"
+
+msgid "Correct Answers"
+msgstr "Correct Answers"
+
+msgid "View Errors"
+msgstr "View Errors"

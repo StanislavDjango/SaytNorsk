@@ -1,0 +1,22 @@
+{
+  "title": "SaytNorsk",
+  "welcome": "Добро пожаловать в SaytNorsk",
+  "testYourNorwegian": "Проверьте ваши навыки норвежского языка",
+  "selectATest": "Выберите тест",
+  "startTest": "Начать тест",
+  "submit": "Отправить",
+  "next": "Далее",
+  "previous": "Назад",
+  "results": "Ваши результаты",
+  "score": "Оценка",
+  "correctAnswers": "Правильные ответы",
+  "incorrectAnswers": "Неправильные ответы",
+  "percentage": "{{correct}} из {{total}} ({{percentage}}%)",
+  "grade": "Оценка: {{grade}}",
+  "viewErrors": "Посмотреть ошибки",
+  "tryAgain": "Попробовать снова",
+  "backToLessons": "Вернуться к урокам",
+  "language": "Язык",
+  "lessons": "Уроки",
+  "tests": "Тесты"
+}

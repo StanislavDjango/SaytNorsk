@@ -1,0 +1,22 @@
+{
+  "title": "SaytNorsk",
+  "welcome": "Welcome to SaytNorsk",
+  "testYourNorwegian": "Test Your Norwegian Skills",
+  "selectATest": "Select a Test",
+  "startTest": "Start Test",
+  "submit": "Submit",
+  "next": "Next",
+  "previous": "Previous",
+  "results": "Your Results",
+  "score": "Score",
+  "correctAnswers": "Correct Answers",
+  "incorrectAnswers": "Incorrect Answers",
+  "percentage": "{{correct}} out of {{total}} ({{percentage}}%)",
+  "grade": "Grade: {{grade}}",
+  "viewErrors": "View Errors",
+  "tryAgain": "Try Again",
+  "backToLessons": "Back to Lessons",
+  "language": "Language",
+  "lessons": "Lessons",
+  "tests": "Tests"
+}
