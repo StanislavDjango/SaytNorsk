@@ -1,16 +1,26 @@
 # SaytNorsk – Norwegian Spelling Test Platform
 
-Full-stack playground for Norwegian language practice. Django REST backend + Next.js frontend, multilingual UI (EN/NO), and sample A1 lessons/tests preloaded via script.
+Modern full-stack app for practicing Norwegian spelling. Django REST backend + Next.js frontend with bilingual UI (EN/NO) and ready-made A1 sample lessons/tests.
 
-## Stack
-- Backend: Django 5, DRF, SQLite (local) / Postgres-ready, Jazzmin admin
-- Frontend: Next.js 15 (App Router disabled; Pages directory), React 18, Tailwind CSS
-- Auth: JWT + Session (ready)
-- Containerization: Docker/Docker Compose
+---
+
+## Features
+- Lessons and tests (fill-in-the-blank, extendable to MCQ/drag-drop/error-find)
+- Auto scoring with letter grades; review answers
+- Multilingual UI (EN/NO); sample Norwegian content included
+- Admin panel (Jazzmin) to manage lessons/tests/questions/answers
+
+## Tech stack
+- **Backend:** Django 5, DRF, Jazzmin, SQLite (local) / Postgres-ready
+- **Frontend:** Next.js 15 (Pages), React 18, Tailwind CSS
+- **Auth:** JWT + Session-ready
+- **Infra:** Docker & Docker Compose
+
+---
 
 ## Quick start
 
-### Option 1: Docker (recommended)
+### Docker (recommended)
 ```bash
 cp backend/.env.example backend/.env
 docker compose up --build
@@ -18,11 +28,10 @@ docker compose up --build
 Access:
 - Frontend: http://localhost:3000
 - API: http://localhost:8000/api/
-- Admin: http://localhost:8000/admin/ (create a superuser after containers start)
+- Admin: http://localhost:8000/admin/ (create superuser after start)
 
-### Option 2: Local setup
-
-Backend (SQLite):
+### Local (SQLite)
+Backend:
 ```bash
 cd backend
 python -m venv venv
@@ -30,13 +39,12 @@ python -m venv venv
 pip install --upgrade pip
 pip install -r requirements.txt
 
-# Env vars (uses SQLite by default)
 set DB_ENGINE=django.db.backends.sqlite3
 set DB_NAME=%cd%\db.sqlite3
 
 python manage.py migrate
-python manage.py createsuperuser   # admin account
-python create_test_data.py         # load demo lessons/tests
+python manage.py createsuperuser
+python create_test_data.py        # seed demo data
 python manage.py runserver
 ```
 
@@ -44,25 +52,41 @@ Frontend:
 ```bash
 cd frontend
 npm ci
-npm run dev                        # http://localhost:3000
+npm run dev                       # http://localhost:3000
 ```
 
+---
+
 ## Demo data
-Script `backend/create_test_data.py` seeds:
+`backend/create_test_data.py` seeds:
 - 3 lessons (A1: greetings, verbs, vowels)
 - 3 tests, 9 questions, 14 answers
 
-Run it from repo root or backend folder after migrations. Default superuser used/created by script: `admin` (if absent).
+Run after migrations (from repo root or backend dir). Uses/creates `admin` user if missing.
 
-## Commands
+---
+
+## Useful commands
 - Backend checks/tests: `cd backend && python manage.py check && python manage.py test`
 - Frontend lint: `cd frontend && npm run lint`
 - Seed data: `python backend/create_test_data.py`
 
-## CI (GitHub Actions)
-- `Frontend CI` – installs deps and runs `npm run lint`.
-- `Backend CI` – installs deps, runs migrations (SQLite), `manage.py check`, and tests.
+---
 
-## Notes
-- `.env.example` provided for backend; keep real secrets out of git.
-- For Postgres, set `DB_ENGINE=django.db.backends.postgresql` and configure DB_* vars.
+## CI (GitHub Actions)
+- **Frontend CI:** install deps, `npm run lint`.
+- **Backend CI:** install deps, SQLite migrate, `manage.py check`, `manage.py test`.
+
+---
+
+## Configuration
+- Backend env template: `backend/.env.example`
+- For Postgres: set `DB_ENGINE=django.db.backends.postgresql` and configure `DB_*` vars.
+- Keep real secrets (.env) out of Git.
+
+---
+
+## Production hints
+- Backend: collect static (`python manage.py collectstatic --noinput`), serve via gunicorn (`gunicorn config.wsgi:application --bind 0.0.0.0:8000`).
+- Frontend: `npm ci && npm run build`, serve with `npm run start`.
+- Set `NEXT_PUBLIC_API_URL` to the backend API URL.
